@@ -1,43 +1,24 @@
-# print('halo')
-import random
+# Импорт функции получения случайных чисел
+# из модуля random.
+from random import randint
 
-num = random.randrange(101)
-print("Добро пожаловать в числовую угадайку")
-print("Я загадал число в диапазоне от 0 до 100")
-print("Попробуй-ка отгадать это число!")
+# Получаем случайное число в диапазоне от 1 до 100.
+number = randint(1, 100)
+print('Угадайте число от 1 до 100')
 
+while True:
+    # Получаем число от пользователя и сохраняем его в переменную.
+    guess = int(input('Введите число: '))
 
-def is_digit(n):
-    if n.isdigit():
-        if int(n) in range(101):
-            return rand_number(n)
-        else:
-            print("Дурачок, чтоли??")
-            print("Это число не в указанном диапазоне!")
-            print("!!!ДИАПАЗОН ОТ 0 ДО 100!!!")
-            return is_digit(input())
-    else:
-        print("Дурачок, чтоли??")
-        print("Нужно писать целое ЧИСЛО в указанном диапазоне!!!")
-        return is_digit(input())
-
-
-def rand_number(n):
-    n = int(n)
-    while n != num:
-        if n > num:
-            print("Слишком много, попробуйте еще раз")
-            return is_digit(input())
-        elif n < num:
-            print("Слишком мало, попробуйте еще раз")
-            return is_digit(input())
-    else:
-        return "Вы угадали, поздравляем!"
-        
-
-
-print(is_digit(input()))
-print('Спасибо за игру. Еще увидимся...')
-
-
-# print('sss')
+    # Если число меньше загаданного...
+    if guess < number:
+        # ...выводим сообщение.
+        print('Ваше число меньше того, что загадано.')
+    elif guess > number:
+        # ...выводим сообщение.
+        print('Ваше число больше того, что загадано.')
+    elif guess == number:
+        # ...прерываем выполнение программы и...
+        break
+# ...выводим сообщение.
+print('Отличная интуиция! Вы угадали число :)')
